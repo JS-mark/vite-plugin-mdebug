@@ -12,7 +12,9 @@
     "build": "npm run clean && tsup src/index.ts --dts --format cjs,esm",
     "prepare": "husky install",
     "log": "npx conventional-changelog --config ./node_modules/@commitlint/cli -i CHANGELOG.md -s -r 0",
-    "lint": "npx lint-staged"
+    "lint": "npx lint-staged",
+    "prepublish": "yarn build",
+    "prepublishOnly": "yarn build"
   },
   "repository": {
     "type": "git",
