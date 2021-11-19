@@ -20,14 +20,14 @@ export function viteMDebug(opt: viteMDebugOptions): Plugin {
           // dev
           return `${_source};import mDebug from 'mdebug';mDebug.init(${JSON.stringify(
             config
-          )}});`;
+          )});`;
         }
 
         if (enabled && !isDev) {
           // build prod
           return `${_source};import mDebug from 'mdebug';mDebug.init(${JSON.stringify(
             config
-          )}});`;
+          )});`;
         }
       }
       return _source;
