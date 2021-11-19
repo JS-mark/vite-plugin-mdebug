@@ -1,0 +1,88 @@
+{
+  "name": "vite-plugin-mdebug",
+  "version": "1.0.0",
+  "description": "vite plugin mDebug",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "dev": "tsup src/index.ts --dts --format cjs,esm --watch",
+    "build": "npm run clean && tsup src/index.ts --dts --format cjs,esm",
+    "prepare": "husky install",
+    "log": "npx conventional-changelog --config ./node_modules/@commitlint/cli -i CHANGELOG.md -s -r 0",
+    "lint": "npx lint-staged"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JS-mark/vite-plugin-mdebug.git"
+  },
+  "keywords": [
+    "vite",
+    "mdebug"
+  ],
+  "author": "JS-mark",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JS-mark/vite-plugin-mdebug/issues"
+  },
+  "homepage": "https://github.com/JS-mark/vite-plugin-mdebug#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "@types/node": "^16.11.9",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "conventional-changelog-cli": "^2.1.1",
+    "eslint": "^8.2.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.0.3",
+    "mdebug": "^2.0.2",
+    "prettier": "^2.4.1",
+    "rimraf": "^3.0.2",
+    "tsup": "^5.7.2",
+    "typescript": "^4.5.2",
+    "vite": "^2.6.14"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "es6": true,
+      "node": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:@typescript-eslint/recommended",
+      "prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 2021,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "rules": {
+      "no-debugger": "off",
+      "no-console": "off"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.md": "prettier -w",
+    "*.{ts,js}": "eslint --fix",
+    "*": "prettier -w -u"
+  }
+}
