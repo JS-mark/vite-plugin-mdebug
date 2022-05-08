@@ -7,6 +7,14 @@ export function viteMDebug(opt: viteMDebugOptions): Plugin {
   let isDev = false;
   const { entry, enabled = true, localEnabled = false, config = {} } = opt;
 
+  /**
+   * Compatible to solve the windows path problem
+   */
+  let entryPath = Array.isArray(entry) ? entry : [entry];
+
+  if (process.platform === 'win32')
+    entryPath = entryPath.map((item) => item.replace(/\\/g, '/'));
+
   return {
     name: 'vite:mdebug',
     enforce: 'pre',
@@ -15,7 +23,7 @@ export function viteMDebug(opt: viteMDebugOptions): Plugin {
       isDev = viteConfig.command === 'serve';
     },
     transform(_source: string, id: string) {
-      if (id === entry) {
+      if (entryPath.includes(id)) {
         if (localEnabled && isDev) {
           // dev
           return `${_source};import mDebug from 'mdebug';mDebug.init(${JSON.stringify(
