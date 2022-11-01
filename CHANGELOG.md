@@ -1,3 +1,12 @@
+## <small>1.0.4 (2022-11-01)</small>
+
+* 1.0.4 ([5a1508d](https://github.com/JS-mark/vite-plugin-mdebug/commit/5a1508d))
+* docs: doc change ([c446c3e](https://github.com/JS-mark/vite-plugin-mdebug/commit/c446c3e))
+* fix: add .npmrc ([04354b6](https://github.com/JS-mark/vite-plugin-mdebug/commit/04354b6))
+* fix(build): build sourceMap bug ([952dc4e](https://github.com/JS-mark/vite-plugin-mdebug/commit/952dc4e))
+
+
+
 ## <small>1.0.3 (2022-05-08)</small>
 
 * 1.0.3 ([0a6acd9](https://github.com/JS-mark/vite-plugin-mdebug/commit/0a6acd9))
