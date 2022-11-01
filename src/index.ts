@@ -25,20 +25,28 @@ export function viteMDebug(opt: viteMDebugOptions): Plugin {
     transform(_source: string, id: string) {
       if (entryPath.includes(id)) {
         if (localEnabled && isDev) {
-          // dev
-          return `${_source};import mDebug from 'mdebug';mDebug.init(${JSON.stringify(
-            config
-          )});`;
+          return {
+            code: `${_source};import mDebug from 'mdebug';mDebug.init(${JSON.stringify(
+              config
+            )});`,
+            map: null // support source map
+          };
         }
 
         if (enabled && !isDev) {
           // build prod
-          return `${_source};import mDebug from 'mdebug';mDebug.init(${JSON.stringify(
-            config
-          )});`;
+          return {
+            code: `${_source};import mDebug from 'mdebug';mDebug.init(${JSON.stringify(
+              config
+            )});`,
+            map: null // support source map
+          };
         }
       }
-      return _source;
+      return {
+        code: _source,
+        map: null // support source map
+      };
     }
   };
 }
