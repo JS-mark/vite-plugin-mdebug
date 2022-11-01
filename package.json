@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-mdebug",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "vite plugin mDebug",
   "main": "dist/index.js",
   "files": [
