@@ -17,13 +17,17 @@
 ```bash
 yarn add mdebug
 # or
-npm i  mdebug -S
+npm install mdebug -S
+# or
+pnpm add mdebug
 ```
 
 ```bash
 yarn add vite-plugin-mdebug -D
 # or
-npm i vite-plugin-mdebug -D
+npm install vite-plugin-mdebug -D
+# or
+pnpm add vite-plugin-mdebug -D
 ```
 
 ## 示例

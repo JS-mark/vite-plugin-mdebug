@@ -2,19 +2,21 @@
   "name": "vite-plugin-mdebug",
   "version": "1.0.4",
   "description": "vite plugin mDebug",
+  "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "files": [
     "dist"
   ],
+  "type": "module",
   "scripts": {
     "clean": "rimraf dist",
     "dev": "tsup src/index.ts --dts --format cjs,esm --watch",
-    "build": "npm run clean && tsup src/index.ts --dts --format cjs,esm",
+    "build": "pnpm run clean && tsup src/index.ts --dts --format cjs,esm",
     "prepare": "husky install",
     "log": "npx conventional-changelog --config ./node_modules/@commitlint/cli -i CHANGELOG.md -s -r 0",
     "lint": "npx lint-staged",
-    "prepublish": "yarn build",
-    "prepublishOnly": "yarn build"
+    "prepublish": "pnpm run build",
+    "prepublishOnly": "pnpm run build"
   },
   "repository": {
     "type": "git",
@@ -30,53 +32,25 @@
     "url": "https://github.com/JS-mark/vite-plugin-mdebug/issues"
   },
   "homepage": "https://github.com/JS-mark/vite-plugin-mdebug#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "devDependencies": {
-    "@commitlint/cli": "^15.0.0",
-    "@commitlint/config-conventional": "^15.0.0",
-    "@types/node": "^16.11.9",
-    "@typescript-eslint/eslint-plugin": "^5.4.0",
-    "@typescript-eslint/parser": "^5.4.0",
-    "conventional-changelog-cli": "^2.1.1",
-    "eslint": "^8.2.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "husky": "^7.0.4",
-    "lint-staged": "^12.0.3",
-    "mdebug": "^2.0.2",
-    "prettier": "^2.4.1",
-    "rimraf": "^3.0.2",
-    "tsup": "^5.7.2",
-    "typescript": "^4.5.2",
-    "vite": "^2.6.14"
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@types/node": "^22.9.0",
+    "conventional-changelog-cli": "^5.0.0",
+    "eslint": "^9.14.0",
+    "@antfu/eslint-config": "^3.8.0",
+    "husky": "^9.1.6 ",
+    "lint-staged": "^15.2.10",
+    "rimraf": "^6.0.1",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11"
   },
   "peerDependencies": {
     "mdebug": "^2.0.2"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "browser": true,
-      "es2021": true,
-      "es6": true,
-      "node": true
-    },
-    "extends": [
-      "eslint:recommended",
-      "plugin:@typescript-eslint/recommended",
-      "prettier"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-      "ecmaVersion": 2021,
-      "sourceType": "module"
-    },
-    "plugins": [
-      "@typescript-eslint"
-    ],
-    "rules": {
-      "no-debugger": "off",
-      "no-console": "off"
-    }
   },
   "husky": {
     "hooks": {
@@ -85,8 +59,6 @@
     }
   },
   "lint-staged": {
-    "*.md": "prettier -w",
-    "*.{ts,js}": "eslint --fix",
-    "*": "prettier -w -u"
+    "*.{ts,js}": "eslint --fix"
   }
 }
