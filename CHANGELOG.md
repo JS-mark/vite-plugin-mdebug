@@ -1,3 +1,15 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [1.0.5](https://github.com/JS-mark/vite-plugin-mdebug/compare/v1.0.4...v1.0.5) (2024-11-13)
+
+
+### Bug Fixes
+
+* project updated ([afa9f94](https://github.com/JS-mark/vite-plugin-mdebug/commit/afa9f94ce54619e3f35ac2b257cc85920cb659e4))
+* project updated ([62eac63](https://github.com/JS-mark/vite-plugin-mdebug/commit/62eac63d5aa50041a9d504af23fa21adb0d53bd1))
+
 ## <small>1.0.4 (2022-11-01)</small>
 
 * 1.0.4 ([5a1508d](https://github.com/JS-mark/vite-plugin-mdebug/commit/5a1508d))
@@ -34,6 +46,3 @@
 * 1.0.1 ([bd0a866](https://github.com/JS-mark/vite-plugin-mdebug/commit/bd0a866))
 * 1.0.2 ([94ce1b5](https://github.com/JS-mark/vite-plugin-mdebug/commit/94ce1b5))
 * feat: init project ([2859db2](https://github.com/JS-mark/vite-plugin-mdebug/commit/2859db2))
-
-
-
