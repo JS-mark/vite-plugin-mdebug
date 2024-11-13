@@ -14,7 +14,11 @@
     "build": "pnpm run clean && tsup src/index.ts --dts --format cjs,esm",
     "prepare": "husky install",
     "log": "npx conventional-changelog --config ./node_modules/@commitlint/cli -i CHANGELOG.md -s -r 0",
-    "lint": "npx lint-staged",
+    "release": "standard-version",
+    "release:alpha": "standard-version --prerelease alpha",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "postrelease": "git push && git push --tags",
     "prepublish": "pnpm run build",
     "prepublishOnly": "pnpm run build"
   },
@@ -47,18 +51,21 @@
     "rimraf": "^6.0.1",
     "tsup": "^8.3.5",
     "typescript": "^5.6.3",
-    "vite": "^5.4.11"
+    "vite": "^5.4.11",
+    "standard-version": "^9.5.0"
   },
   "peerDependencies": {
     "mdebug": "^2.0.2"
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
-    "*.{ts,js}": "eslint --fix"
+    "*.ts": [
+      "pnpm lint:fix"
+    ]
   }
 }
